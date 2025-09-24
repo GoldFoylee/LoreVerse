@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Smooth Horizontal Scroll */
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -18,11 +17,9 @@
 
 .scroll-track {
   display: flex;
-  width: 200%; /* Doubled for smooth infinite scroll */
+  width: 200%;
   animation: scroll-left 40s linear infinite;
 }
-
-/* Magical Fade-Zoom (for floating orbs or particles) */
 @keyframes fadeZoom {
   0% {
     transform: scale(0.5);
@@ -41,10 +38,9 @@
 .animate-fadeZoom {
   animation: fadeZoom 3s ease-in-out forwards;
 }
-
-/* Optional Star Twinkle Background – not used by default */
 @keyframes twinkle {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0 0;
   }
   50% {
@@ -62,7 +58,6 @@
 .animate-twinkle {
   animation: twinkle 8s infinite linear;
 }
-
 
 @keyframes fog {
   0% {

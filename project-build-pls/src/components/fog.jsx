@@ -1,11 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from "react";
 
 function FogCanvas() {
   const canvasRef = useRef();
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     let particles = [];
     const particleCount = 100;
@@ -30,7 +30,7 @@ function FogCanvas() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
       for (let p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -49,15 +49,12 @@ function FogCanvas() {
     createParticles();
     draw();
 
-    window.addEventListener('resize', resizeCanvas);
-    return () => window.removeEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
+    return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full z-0"
-    />
+    <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-0" />
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import pb from '../lib/pb'; // Make sure this is your configured PocketBase instance
+import pb from '../lib/pb'; 
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -69,23 +69,18 @@ function PostDetail({ postId, onClose }) {
       transition={{ duration: 0.2 }}
     >
       <div className="max-w-3xl w-full bg-gray-900 rounded-lg shadow-2xl p-8 relative">
-        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl transition"
         >
           <X className="h-6 w-6" />
         </button>
-
-        {/* Post content */}
         {post && (
           <>
             <h1 className="text-3xl font-bold mb-4 text-yellow-400">{post.title}</h1>
             <p className="text-gray-300 mb-6">{post.content}</p>
           </>
         )}
-
-        {/* Comment input */}
         <form onSubmit={handleCommentSubmit} className="mb-6">
           <textarea
             value={newComment}
@@ -102,8 +97,6 @@ function PostDetail({ postId, onClose }) {
             Comment
           </button>
         </form>
-
-        {/* Comments list */}
         <div>
           <h3 className="text-xl font-semibold text-yellow-400 mb-3">Comments</h3>
           {comments.length === 0 ? (

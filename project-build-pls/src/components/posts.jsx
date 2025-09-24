@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import pb from '../lib/pb';
-import { X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import pb from "../lib/pb";
+import { X } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Post({ onClose }) {
   const [form, setForm] = useState({
-    title: '',
-    content: '',
+    title: "",
+    content: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,11 +16,11 @@ function Post({ onClose }) {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     const userId = pb.authStore.model?.id;
     if (!userId) {
-      setError('You must be logged in to post.');
+      setError("You must be logged in to post.");
       return;
     }
 
@@ -31,13 +31,13 @@ function Post({ onClose }) {
     };
 
     try {
-      await pb.collection('posts').create(data);
-      alert('Post created successfully!');
-      setForm({ title: '', content: '' });
-      onClose(); // Close the modal
+      await pb.collection("posts").create(data);
+      alert("Post created successfully!");
+      setForm({ title: "", content: "" });
+      onClose();
     } catch (err) {
       console.error(err);
-      setError('Failed to create post.');
+      setError("Failed to create post.");
     }
   };
 
@@ -53,7 +53,6 @@ function Post({ onClose }) {
         onSubmit={handlePost}
         className="relative bg-zinc-900 text-white rounded-lg shadow-2xl w-full max-w-xl p-8 space-y-4 border border-yellow-500/40"
       >
-        {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
@@ -62,7 +61,9 @@ function Post({ onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-3xl font-bold text-center text-yellow-400">Create a New Theory</h2>
+        <h2 className="text-3xl font-bold text-center text-yellow-400">
+          Create a New Theory
+        </h2>
 
         <input
           type="text"
